@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Confirmation page</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <style>
+        body{
+            background-color: #e8e8dd;
+            opacity: 1.0;
+        }
+
+        .button {
+             border-radius: 4px;
+            border: 2px solid;
+            border-color: #2c9986;
+    box-shadow: 1px 1px #7d7e85;
+       float:left;
+            position: relative;
+            right: 300px;
+            bottom: 30px;
+  width: 180px;
+  height: 30px;
+  max-width: 200px;
+    padding-top: 7px;
+    margin-right: 10px;
+  clear: none;
+  border-radius: 5px;
+  background-color: #83e0c6;
+  -webkit-transition: background-color 300ms ease;
+  transition: background-color 300ms ease;
+  padding-bottom: -4px;
+  font-family: Montserrat, sans-serif;
+            color: #2c9986;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  
+}
+        .form_1{
+            position: relative;
+            padding-top: 8px;
+            max-width: 400px;
+            padding-left:50px;
+            padding-right: -25px;
+            bottom:100px;
+            text-align: left;
+            width: 240px;
+            color: #2c9986;
+            font-family: 'Roboto Condensed';
+            font-size: 15px ;
+
+            white-space: nowrap;
+
+
+        }
+        .form_2{
+            position: relative;
+            background-color: rgba(44,153,134,0.7);
+            width:550px;
+            max-width: 550px;
+            padding-top: 4px;
+            margin-left: -20px;
+            margin-right: 30px;
+            padding-right: 30px;
+            padding-left: 20px;
+            text-align: left;
+            bottom: 100px;
+            color: white;
+            font-family: 'Roboto';
+            font-size: 14px;
+            white-space: pre-wrap;
+            word-wrap:break-word;
+            padding-bottom: 4px;
+            border-radius: 5px 5px 5px 5px;
+
+        }
+.container{
+    position: relative;
+    right:40px;
+    margin-left: 150px;
+    background-color: #83e0c6;
+    width: 1000px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 5px 5px #7d7e85;
+
+}
+.container_2{
+    margin: auto;
+    width:1000px;
+    padding-left: 30%;
+    padding-top:100px;
+}
+
+.table_buttons{
+    left:50px;
+    position: relative;
+    bottom: 50px;
+text-align:center;
+white-space: nowrap;
+max-width:350px;
+margin-right: 70px;
+
+padding-bottom: 0px;
+
+}
+.header{
+    color:white;
+    font-family:'Roboto';
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 20px;
+
+
+}
+
+    </style>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+    if (window.location.hash) { 
+        //bind to scroll function
+        $(document).scroll( function() {
+            var hash = window.location.hash
+            var hashName = hash.substring(1, hash.length);
+            var element;
+
+            //if element has this id then scroll to it
+            if ($(hash).length != 0) {
+                element = $(hash);
+            }
+            //catch cases of links that use anchor name
+            else if ($('a[name="' + hashName + '"]').length != 0)
+            {
+                //just use the first one in case there are multiples
+                element = $('a[name="' + hashName + '"]:first');
+            }
+
+            //if we have a target then go to it
+            if (element != undefined) {
+                window.scrollTo(0, element.position().top);
+            }
+            //unbind the scroll event
+            $(document).unbind("scroll");
+        });
+    }
+
+});
+</script>
+
+</head>
+
+<body>
+<div class="container">
+
+    <div class="container_2">
+    <table class="table_buttons">
+  <tr>
+        <td style="max-width: 300px;">
+
+            <form name="confirmform" method="get" action="/rango/confirm/">
+                <input type="hidden" name="confirm" value="true">
+                 <a class="button" href="/rango/complaints/" >Confirm Complaint</a>
+            </form>
+        </td>
+
+    </tr>
+    <tr> 
+        <td><div style="right:300px;bottom:45px;position:relative;">
+<p style="font-style:italic;color:white;text-align:center;">To make changes go back in your browser
+</p>
+</div></td>
+    </tr>
+    </table>
+ </div>
+    
+<table style="padding-top:-20px;padding-bottom:80px;">
+    <tbody>
+     <tr>
+        <td class="form_1">Name of complainant: </td>
+        <td class="form_2"> {{ fname }}</td>
+     </tr>
+     <tr>
+        <td class="form_1">Description of complaint:</td>
+        <td class="form_2" style="word-wrap: break-word;">{{ descrip }}</td>
+
+     </tr>
+     <tr>
+        <td class="form_1">Complaint type:</td>
+        <td class="form_2">{{ complaint_type }}</td>
+    </tr>
+    <tr>
+        <td class="form_1">Date of birth:</td>
+        <td class="form_2"> {{ birth_date }}</td>
+    </tr>
+    <tr>
+        <td class="form_1">Gender</td>
+        <td class="form_2">{{gender}}</td>
+    </tr>
+    <tr>
+        <td class="form_1">Mobile number: </td>
+        <td class="form_2">{{ mob }}</td>
+    </tr>
+    <tr>
+        <td class="form_1">E-mail:</td>
+        <td class="form_2">{{ email }}</td>
+    </tr>
+    <!--<tr>
+        <td rowspan="4" style="vertical-align: top;" class="form_1">Address </td>
+        <td class="form_2">{{ address }}</td>
+    </tr> -->
+    <tr>
+        <td rowspan="2" style="vertical-align: top;" class="form_1">Address</td>
+        <td  class="form_2">{{ taluka }}</td>
+    </tr>
+    <tr>
+        <td class="form_2"> {{ village }}</td>
+    </tr>
+   <!-- <tr>
+        <td class="form_2">{{ pin }}</td>
+    </tr> -->
+    
+    <tr>
+        <td class="form_1">Phone number:</td>
+        <td class="form_2">{{ ph_areacode }}-{{ ph_no }}</td>
+    </tr>
+   <tr>
+        <td class="form_1">Office:</td>
+        <td class="form_2">{{ office }}</td>
+    </tr>
+       <tr>
+        <td class="form_1">Concerned person:</td>
+        <td class="form_2">{{ acc_person }}</td>
+    </tr>
+    <tr>
+        <td class="form_1">Status of complaint:</td>
+        <td class="form_2">{{ status }}</td>
+    </tr>
+    <tr>
+        <td class="form_1">Status remarks:</td>
+        <td class="form_2">{{ status_remarks }}</td>
+    </tr>
+    <tr>
+        <td class="form_1">Files</td>
+        <td class="form_2">{{ filename }}</td>
+    </tr>
+
+    </tbody>
+</table>
+ 
+
+
+</div>
+</body>
+
+</html>

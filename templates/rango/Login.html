@@ -1,0 +1,96 @@
+<!Doctype HTML>
+<html>
+<head>
+    <title>Login</title>
+	<style>
+#body{
+	background-color: #000000;
+}
+</style>
+
+</head>
+
+<body style="background-color:black"s>
+	<div style="text-align: center;">
+	<div style="box-sizing: border-box; display: inline-block; width: 700px; max-width: 700px; background-color: #ffffff; border: 2px solid #ffffff; 
+	border-radius: 5px;height:300px; margin: 50px auto auto;">
+	<div style="background: #2c9986; border-radius: 5px 5px 0px 0px; padding: 25px;"><span style="font-family: verdana,arial; color: #ffffff; font-size: 1.2em;
+		font-weight:bold;">{{ state }}</span></div>
+	<div style="background: ; padding: 15px">
+	<style type="text/css" scoped>
+
+	td { 
+		text-align:left; 
+		font-family: verdana,arial; 
+		color: #064073;
+		font-size: 1.10em;
+		}
+	
+	input {
+	 border: 1px solid #CCCCCC;
+	 border-radius: 5px; 
+	 color: #666666; 
+	 display: inline-block; 
+	 font-size: 1.00em;  
+	 padding: 5px; 
+	 width: 250px; 
+	}
+	
+	input[type="button"] { 
+	height: auto; 
+	width: auto; 
+	cursor: pointer; 
+	box-shadow: 0px 0px 2px #0361A8; 
+	float: center; 
+	text-align:center; 
+	margin-top: 10px; 
+	margin-left:10px;
+	}
+    input[type="submit"]{
+    height: auto; 
+	width: 150px; 
+	cursor: pointer; 
+	box-shadow: 0px 0px 2px #0361A8; 
+	float: center; 
+	text-align:center; 
+	margin-top: 10px; 
+	margin-left:10px;
+	}
+
+    
+	table.center { 
+		margin-left:auto;
+	    margin-right:auto; 
+		}
+	.error { 
+		font-family: verdana,arial; 
+		color: #2c9986;
+		 font-size: 1.00em; 
+		}
+
+	div.footer{
+		font-family: verdana,arial;
+		font-color: #ffffff;
+
+	}
+	</style>
+
+<form method="post" action="rango/login/" name="form" target="_top">
+    {% csrf_token %}
+<input type="hidden" name="next" value="login">
+<input type="hidden" name="hide" value="">
+<table class='center'>
+<tr><td>Username:</td><td>{{ form.username }}</td></tr>
+<tr><td>Password:</td><td>{{ form.password }}</td></tr>
+<tr><td>&nbsp;</td><td><input id="submit1" type="submit" value="Submit"></td></tr>
+<tr></tr>
+<tr></tr>
+</table>
+</form>
+<div id="footer">
+	<p><br><em>Copyrights © Supriya Sule<em></p>
+</div>
+</div></div></div>
+
+</body>
+</html>

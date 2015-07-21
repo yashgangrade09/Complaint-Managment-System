@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Complaint</title>
+    </head>
+
+    <body>
+        <h1>Add a Complaint</h1>
+
+        <form id="complaint_form" method="post" action="/rango/add_complaint/">
+
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+            <li class="form-line jf-required" data-type="control_textbox" id="id_54">
+                <label class="form-label form-label-left" id="label_54" for="{{ form.complaint_taker.id_for_label }}">
+                    Complaint taker(Your name)
+                    <span class="form-required">
+                    *
+                    </span>
+                </label>
+                <div id="cid_54" class="form-input jf-required">
+                <!-- <input type="text" class=" form-textbox validate[required]" data-type="input-textbox" id="input_54" name="" size="68" value="" /> -->
+                {{ form.complaint_taker }}
+                </div>
+            </li>
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+            {% endfor %}
+
+            <input type="submit" name="submit" value="Create Category" />
+        </form>
+    </body>
+
+</html>

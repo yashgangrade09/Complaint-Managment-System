@@ -1,0 +1,42 @@
+# ----- REMOVE LINES ABOVE HERE --------------------------
+#
+# This license is valid from Mon Sep 16 19:46:52 UTC 2013.
+#
+# This is license NODELOCKED to HOSTID=8c2daa4a425b;
+# there is no need to run lmgrd for this license.
+#
+#
+# This is a permanent license generated on Mon Sep 16 19:46:52 UTC 2013
+INCREMENT Vivado_WebPACK xilinxd 2014.09 permanent uncounted \
+E26A45632C6C \
+VENDOR_STRING=gmv@intermed.ma,Vivado_WebPACK,software,permanent,_210799055_0_0_455 \
+HOSTID=ANY ISSUER="Xilinx Inc" START=16-Sep-2013 TS_OK
+#
+#  This license is valid for evaluation ( 365 days ) from Mon Sep 16 19:46:52 UTC 2013
+INCREMENT PetaLinux_NoSuport_Eval xilinxd 2014.09 17-sep-2014 \
+uncounted 5B6CDEB88179 \
+VENDOR_STRING=gmv@intermed.ma,PetaLinux_NoSuport_Eval,software,evaluation,_210799055_0_0_422 \
+HOSTID=8c2daa4a425b ISSUER="Xilinx Inc" START=16-Sep-2013 \
+TS_OK
+#
+#
+# ----------------------------------------------------------------------
+#  The following PACKAGE definition is a REQUIRED part of this license:
+#
+PACKAGE Vivado_WebPACK xilinxd 2014.09 6432956B2C86 \
+COMPONENTS="PlanAhead XC7Z030 WebPACK XC7Z010 xps_tdp \
+V_WebPACK XC7Z020" OPTIONS=SUITE
+#
+# ------------------------------------------------------------------------------
+#
+#
+# ----------------------------------------------------------------------
+#  The following PACKAGE definition is a REQUIRED part of this license:
+#
+PACKAGE PetaLinux_NoSuport_Eval xilinxd 2014.09 33B06C6E5DA6 \
+COMPONENTS="petalinux_arch_microblaze petalinux_arch_ppc \
+petalinux_arch_zynq" OPTIONS=SUITE
+#
+# ------------------------------------------------------------------------------
+#
+# ----- REMOVE LINES BELOW HERE --------------------------

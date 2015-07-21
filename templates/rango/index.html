@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Complaints</title>
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.js"></script>
+    </head>
+
+    <body>
+        <h1>Complaints</h1>
+        <strong></strong><br />
+
+    <form action="/rango/complaints/" method="post" name="viewform" id="viewform">
+        {% csrf_token %}
+        {{ form.start_date }}
+        {{ form.end_date }}
+        {{ form.status }}
+        {{ form.complaint_type }}
+        {{ form.acc_person }}
+        {{ form.taluka }}
+
+        <button id="input_20" type="submit" class="form-submit-button">
+              Go
+            </button>
+        <br>
+        {% if error %}
+            {{error}}
+        {% endif %}
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Complaint No</th>
+                <th>Complaint Date</th>
+                <th>Complaint taker</th>
+                <th>Complainant Name</th>
+                <th>Gender</th>
+                <th>E-mail</th>
+                <th>Mobile</th>
+                <th>phone no</th>
+                <th>Complaint Type</th>
+                <th>Description</th>
+                <th>Person handling the complaint</th>
+                <th>Status of complaint</th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            <tr>
+
+                <td>{{ complaint.id  }}</td>
+                <td>{{ complaint.complaint_date }}</td>
+                <td>{{ complaint.complaint_taker }}</td>
+                <td>{{ complaint.salutation }} {{ complaint.fname }} {{ complaint.lname }}</td>
+                <td>{{ complaint.gender }}</td>
+                <td>{{ complaint.email }}</td>
+                <td>{{ complaint.mob }}</td>
+                {% if complaint.ph_no %}
+                <td>{{ complaint.ph_areacode }}-{{ complaint.ph_no }}</td>
+                    {% else %}
+                    <td>-</td>
+                {% endif %}
+                <td>{{ complaint.complaint_type }}</td>
+                <td>{{ complaint.descrip }}</td>
+                <td>{{ complaint.acc_person }}</td>
+                <td>{{ complaint.status }}</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+        <a href="/rango/about/">About</a><br />
+    </body>
+    <script >
+$(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+
+</script>
+</html>

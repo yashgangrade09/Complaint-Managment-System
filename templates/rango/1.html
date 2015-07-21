@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    {% load staticfiles %}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>delete</title>
+
+<link href='http://fonts.googleapis.com/css?family=Cuprum&amp;subset=latin' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="{% static "css/styles.css"%}" />
+<link rel="stylesheet" type="text/css" href="{% static "jquery.confirm/jquery.confirm.css"%}" />
+
+</head>
+<body>
+{% load staticfiles %}
+<div id="page">
+
+	<?php 
+       
+    
+    foreach($tuts as $t){
+        ?>
+        
+        <div class="item">
+	        <a href="http://tutorialzine.com/?p=<?php echo $t['id']?>">
+            	<img src="http://cdn.tutorialzine.com/img/featured/<?php echo $t['id']?>.jpg" title="<mewar>" alt="dfdfdfd" width="300" height="40" />
+            </a>
+            <div class="delete"></div>
+        </div>
+        <?php
+    }
+    
+    ?>
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script src="{% static "jquery.confirm/jquery.confirm.js" %}"></script>
+<script src="{% static "js/script.js"%}"></script>
+
+</body>
+</html>

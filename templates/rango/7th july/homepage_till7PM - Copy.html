@@ -1,0 +1,805 @@
+<!DOCTYPE HTML>
+<HTML>
+<head>
+        {% load staticfiles %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">  <!--popup-->
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+
+        <link rel="stylesheet" type="text/css" href="{% static "css/style.css"%}" />   <!-- dropdown page-->
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css' />
+    <script type="text/javascript" src="{% static "js/modernizr.custom.79639.js" %}"></script>
+    <noscript><link rel="stylesheet" type="text/css" href="css/noJS.css" /></noscript>
+<style >
+body {
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  color: #333;
+  font-size: 12px;
+  line-height: 20px;
+}
+h1 {
+  margin: 10px 0px;
+  font-size: 38px;
+  line-height: 44px;
+  font-weight: 700;
+}
+h2 {
+  margin: 10px 0px;
+  font-size: 32px;
+  line-height: 36px;
+  font-weight: 700;
+}
+h3 {
+  margin: 10px 0px 1px;
+  font-family: Montserrat, sans-serif;
+  font-size: 21px;
+  line-height: 30px;
+  font-weight: 400;
+}
+h4 {
+  margin: 10px 0px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
+h5 {
+  margin: 10px 0px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+h6 {
+  margin: 10px 0px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+}
+p {
+  position: relative;
+  top: 14px;
+  display: inline-block;
+  width: 970px;
+  margin-bottom: 27px;
+  padding-left: 0px;
+  font-family: Montserrat, sans-serif;
+  color: black;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+}
+.button {
+  position: relative;
+  display: inline-block;
+  width: 143px;
+  height: 39px;
+  max-width: 144px;
+    padding-top: 11px;
+    margin-right: 30px;
+  clear: none;
+  border-radius: 5px;
+  background-color: #2c9986;
+  -webkit-transition: background-color 300ms ease;
+  transition: background-color 300ms ease;
+    float: right;
+  font-family: Montserrat, sans-serif;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.button_add {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 39px;
+    padding-top: 11px;
+    margin-right: 30px;
+    clear: none;
+    border-radius: 5px;
+    background-color: #2c9986;
+    -webkit-transition: background-color 300ms ease;
+    transition: background-color 300ms ease;
+    direction: ltr;
+    float: right;
+    font-family: Montserrat, sans-serif;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.button:hover {
+  background-color: #848a9c;
+}
+.button.nav {
+  margin-left: 18px;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.button.nav:hover {
+  background-color: #9299ad;
+}
+.button.big-green {
+  margin-top: 191px;
+  padding: 25px 22px;
+  background-color: #32ac97;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  font-size: 29px;
+  text-transform: capitalize;
+}
+.button.big-green:hover {
+  background-color: #258575;
+}
+.button.sign-up {
+  background-color: #2c9986;
+}
+.button.sign-up:hover {
+  background-color: #33b59f;
+}
+.section {
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+.section.header {
+  padding-top: 22px;
+  padding-bottom: 22px;
+  background-color: #262933;
+}
+.section.hero {
+  display: block;
+  height: 20000px;
+  padding-top: 75px;
+  padding-bottom: 0px;
+  background-color: #363b48;
+  background-image: url('{% static "images/9hpQeHwVw06hP17FDer3_g_1450.jpg" %}'), url('{% static "images/9hpQeHwVw06hP17FDer3_g_1450.jpg" %}');
+  background-size: cover, auto;
+  background-repeat: repeat-y, repeat;
+  background-attachment: fixed, fixed;
+  opacity: 1;
+  text-align: center;
+}
+.section.grey {
+  background-color: #eff1f4;
+  text-align: center;
+}
+.section.centered {
+  text-align: center;
+}
+.section.footer {
+  background-color: #363b48;
+  text-align: left;
+}
+.company {
+  position: relative;
+  display: block;
+  width: 600px;
+  margin-top: 1%;
+    margin-left: 0.5%;
+  margin-bottom: 2px;
+  padding-bottom: 0px;
+  float: left;
+  font-family: Montserrat, sans-serif;
+  color: white;
+  font-size: 28px;
+  font-weight: 400;
+}
+.nav-link {
+  margin-right: 11px;
+  margin-left: 11px;
+  -webkit-transition: color 300ms ease, background-color 300ms ease;
+  transition: color 300ms ease, background-color 300ms ease;
+  font-family: Montserrat, sans-serif;
+  color: rgba(255, 255, 255, 0.81);
+  font-size: 14px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.nav-link:hover {
+  color: white;
+}
+.nav-link.sign-up {
+  position: relative;
+  left: 60px;
+  display: inline;
+  height: 39px;
+  margin-right: 11px;
+  padding: 10px 24px 10px 20px;
+  border-radius: 5px;
+  background-color: #2c9986;
+}
+.nav-link.sign-up:hover {
+  background-color: #3ac2ab;
+}
+.nav-column {
+  right: auto;
+  padding-top: 10px;
+  text-align: right;
+}
+.logo {
+  margin-right: 11px;
+  float: left;
+  background-color: transparent;
+  background-image: url('../images/example-bg.png');
+}
+.hero-heading {
+  font-family: Montserrat, sans-serif;
+  color: white;
+  font-size: 38px;
+  font-weight: 400;
+}
+.hero-subhead {
+  color: #a3a8b6;
+  font-size: 14px;
+}
+.section-title {
+  font-family: Montserrat, sans-serif;
+  font-size: 31px;
+  font-weight: 400;
+  text-align: center;
+}
+.section-subtitle {
+  margin-bottom: 43px;
+  color: #848999;
+  text-align: center;
+}
+.responsive-img {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+.grey-icon {
+  margin-right: 9px;
+}
+.content-column {
+  padding-top: 79px;
+  text-align: left;
+}
+.circle {
+  height: 303px;
+  margin-bottom: 25px;
+  padding-top: 21px;
+  border-radius: 190px;
+  background-color: #f7f8fa;
+}
+.number {
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin-right: auto;
+  margin-bottom: 17px;
+  margin-left: auto;
+  padding-top: 10px;
+  border-radius: 50px;
+  background-color: #363b48;
+  font-family: Montserrat, sans-serif;
+  color: white;
+  font-size: 20px;
+}
+.icons {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-top: 30px;
+  padding-top: 12px;
+  border-radius: 40px;
+  background-color: #eff1f4;
+}
+.quote-box {
+  padding: 34px 40px 34px 98px;
+  border-radius: 8px;
+  background-color: white;
+  background-image: url('../images/12-quotes.png');
+  background-position: 8% 22%;
+  background-size: 50px;
+  background-repeat: no-repeat;
+  text-align: left;
+}
+.quote {
+  color: #2d303b;
+  font-size: 15px;
+  line-height: 24px;
+}
+.quote-thingy {
+  display: block;
+  margin-top: -2px;
+  margin-right: auto;
+  margin-left: 45px;
+}
+.by-section {
+  text-align: left;
+}
+.person-icon {
+  margin-right: 15px;
+  float: left;
+}
+.location {
+  font-family: Varela;
+  color: #848999;
+  font-size: 15px;
+}
+.logo-bottom {
+  margin-right: 14px;
+  float: left;
+}
+.footer-text {
+  display: inline-block;
+  margin-top: 11px;
+  font-family: Montserrat, sans-serif;
+  color: #7d8391;
+  font-size: 15px;
+}
+.social-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 7px;
+  margin-left: 7px;
+  padding-top: 9px;
+  border-radius: 40px;
+  background-color: #596073;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+  text-align: center;
+}
+.social-icon:hover {
+  background-color: #7f89a3;
+}
+.right-footer-col {
+  text-align: right;
+}
+.nav-bar {
+  height: 87px;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  background-color: #292c38;
+}
+.image-crop {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 302px;
+  box-shadow: red 0px -11px 0px 0px inset;
+  -webkit-transition: height 300ms ease;
+  transition: height 300ms ease;
+}
+.image-crop:hover {
+  height: 372px;
+}
+.button-group {
+  margin-top: 25px;
+  margin-bottom: 48px;
+}
+.center {
+  text-align: center;
+}
+.complaint_background {
+  position: relative;
+  left: 10px;
+  bottom: 25px;
+    padding-bottom:5px;
+  padding-top: -10px;
+  width: 1050px;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  background-color: #f7f7f7;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+.header_complaint {
+  position: relative;
+  left: 10px;
+  bottom: 25px;
+  width: 1050px;
+  height: 50px;
+ border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+  background-color: #2c9986;
+}
+.header_compno {
+  position: relative;
+    width: 100%;
+  height: 200px;
+  margin-top: 0px;
+  color: white;
+  font-size: 17px;
+  text-align: center;
+}
+.header_date {
+  position: relative;
+  left: 91px;
+  bottom: 102px;
+  width: 100px;
+  color: white;
+  font-size: 17px;
+}
+@media (max-width: 991px) {
+  .button.nav {
+    margin-left: 11px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .button.big-green {
+    margin-top: 148px;
+  }
+  .nav-link {
+    margin-right: 7px;
+    margin-left: 7px;
+    font-size: 13px;
+  }
+  .grey-icon {
+    margin-top: 19px;
+  }
+  .content-column {
+    padding-top: 0px;
+  }
+  .circle {
+    height: 226px;
+  }
+  .frames {
+    width: 75%;
+  }
+  .number {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-top: 4px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 767px) {
+  .button {
+    margin-bottom: 10px;
+  }
+  .button.nav {
+    display: block;
+    width: 60%;
+    margin: 23px auto 17px;
+  }
+  .button.big-green {
+    margin-top: 86px;
+    margin-bottom: 62px;
+  }
+  .section {
+    padding: 32px 15px;
+  }
+  .section.hero {
+    padding-top: 42px;
+  }
+  .section.footer {
+    text-align: center;
+  }
+  .company {
+    display: inline-block;
+    float: none;
+  }
+  .nav-column {
+    padding-top: 19px;
+    text-align: center;
+  }
+  .logo {
+    margin-top: -14px;
+    float: none;
+  }
+  .company-column {
+    margin-top: 35px;
+    margin-bottom: 23px;
+    text-align: center;
+  }
+  .hero-heading {
+    font-size: 28px;
+    line-height: 34px;
+  }
+  .grey-icon {
+    margin-top: 28px;
+  }
+  .content-column {
+    padding-left: 0px;
+  }
+  .circle {
+    display: inline-block;
+    height: auto;
+    border-radius: 10px;
+  }
+  .frames {
+    width: 55%;
+    margin-bottom: 19px;
+  }
+  .number {
+    margin-bottom: 20px;
+  }
+  .quote-box {
+    background-image: url('../images/12-quotes.png');
+  }
+  .by-section.first {
+    margin-bottom: 35px;
+  }
+  .logo-bottom {
+    margin-right: -1px;
+    margin-bottom: 37px;
+    float: none;
+  }
+  .footer-text {
+    margin-bottom: 22px;
+  }
+  .social-icon.first {
+    margin-left: 1px;
+  }
+  .right-footer-col {
+    text-align: center;
+  }
+  .nav-bar {
+    padding-top: 26px;
+    padding-bottom: 26px;
+  }
+  .brand-column {
+    text-align: center;
+  }
+}
+@media (max-width: 479px) {
+  .button {
+    display: block;
+  }
+  .button.nav {
+    width: 80%;
+  }
+  .button.big-green {
+    margin-top: 0px;
+    margin-right: 16px;
+    margin-left: 16px;
+  }
+  .section {
+    padding-right: 11px;
+  }
+  .section.hero {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .nav-link {
+    display: block;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .hero-subhead {
+    margin-bottom: 34px;
+  }
+  .grey-icon {
+    margin-top: 34px;
+  }
+  .content-column {
+    text-align: center;
+  }
+  .frames {
+    width: 75%;
+  }
+  .quote-box {
+    padding-left: 75px;
+    background-image: url('../images/12-quotes.png');
+    background-position: 8% 17%;
+  }
+.w-container1{
+position:fixed;
+    height:100px;
+}
+.single_complaint{
+    max-width:1000px;
+    width:100%;
+    float:right;
+}
+table{
+width: 100%;
+    float:right;
+}
+.table1{
+padding-bottom:2px;
+
+}
+
+</style>
+</head>
+<body>
+{% load staticfiles %}
+<header class="w-section nav-bar " >
+    <div class="w-container1">
+      <div class="w-row" >
+        <div class="w-col w-col-4 w-clearfix brand-column">
+          <div class="company">Office Management of MP Supriya Sule</div>
+        </div>
+        </div>
+
+          <div class="table_header">
+              <table class="header_1" style="float:right;">
+                  <tr>
+                      <td><a class="button_add" href="/rango/add_complaint/" target="_blank">Add a Complaint</a></td>
+                      <td><a class="button" href="/rango/logout/">Logout</a></td>
+                  </tr>
+              </table>
+
+          </div>
+</header>
+
+    <!-- jQuery if needed -->
+    <script type="text/javascript" src="{% static "js/dropscript.js" %}"></script>
+    <script type="text/javascript">
+
+      function DropDown(el) {
+        this.dd = el;
+        this.initEvents();
+      }
+      DropDown.prototype = {
+        initEvents : function() {
+          var obj = this;
+
+          obj.dd.on('click', function(event){
+            $(this).toggleClass('active');
+            event.stopPropagation();
+          }); 
+        }
+      }
+
+      $(function() {
+
+        var dd = new DropDown( $('#dd') );
+
+        $(document).click(function() {
+          // all dropdowns
+          $('.wrapper-dropdown-5').removeClass('active');
+        });
+
+      });
+
+    </script>
+
+<div class="w-section section hero">
+
+<table class="sorting_box" style="float: left;">
+    <form action="/rango/complaints/" method="post" name="viewform" id="viewform">
+        {% csrf_token %}
+    <tbody>
+    <tr>
+        <td>{{ form.search }}</td>
+    </tr>
+    <tr>
+        <td>{{ form.start_date }}</td>
+    </tr>
+     <tr>
+        <td>{{ form.end_date }}</td>
+    </tr>
+     <tr>
+        <td>{{ form.complaint_type }}</td>
+    </tr>
+     <tr>
+        <td>{{ form.taluka }}</td>
+    </tr>
+     <tr>
+        <td>{{ form.village }}</td>
+    </tr>
+     <tr>
+        <td>{{ form.acc_person }}</td>
+    </tr>
+     <tr>
+        <td>{{ form.status }}</td>
+    </tr>
+    <tr>
+        <td><button type="submit">Submit</button></td>
+    </tr>
+    </tbody>
+
+    </form>
+</table>
+
+
+
+
+<table style="float: inherit;">
+    <tbody>
+
+{% for complaint in complaints %}
+
+
+<tr >
+     <td style="">
+         {% load staticfiles %}
+         <div class="wrapper-demo">
+          <div id="d1" class="wrapper-dropdown-7" tabindex="1">
+            <table>
+                <tbody>
+                <tr>
+                    <td class=""><a href="#myPopup" data-rel="popup" class="icon-user"></a></td>
+                </tr>
+                <tr>
+                    <td class=""><i class="icon-cog"></i></td>
+
+                </tr>
+                <tr>
+                    <td class=""><i class="icon-remove"></i></td>
+
+                </tr>
+
+                </tbody>
+
+            </table>
+          </div>
+             </div>
+
+     </td>
+
+    <td >
+    <div class="header_complaint">
+
+      <div class="header_compno" >
+          <table  class="table1">
+             <tbody>
+             <tr >
+             <td><a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left">Showg</a></td>
+             <td style="width:40px;text-align:left;padding-left:3px;">#{{ complaint.id  }} </td>
+                <td style="width: 120px;text-align: center;padding-right: 6px;">{{ complaint.complaint_date }}</td>
+                <td style="width: 70px;padding-right: 6px;">{{ complaint.complaint_taker }}</td>
+                {% if complaint.lname %}
+                 <td style="width:130px;">{{ complaint.fname }} {{ complaint.lname }} </td>
+                    {% else %}
+                     <td style="width:70px;padding-left: 8px;padding-right: 8px;">{{ complaint.fname }}</td>
+                    {% endif %}
+                <td style="width:100px;text-align: left;padding-left: 5px">{{ complaint.mob }}</td>
+                {% if complaint.email %}
+                <td style="text-align: left;max-width:200px;padding-right: 10px; ">{{ complaint.email }}</td>
+                {% endif %}
+
+                {% if complaint.ph_no %}
+                <td style="max-width:110px;text-align: center">{{ complaint.ph_areacode }}-{{ complaint.ph_no }}</td>
+                    {% else %}
+                    <td></td>
+                {% endif %}
+                <td style="width: 150px;max-width: 200px;">{{ complaint.complaint_type }}</td>
+                <td style="width: 80px;">{{ complaint.acc_person }}</td>
+                <td>{{ complaint.status }}</td>
+
+             </tr>
+             </tbody>
+            </table>
+
+
+      </div>
+
+    </div>
+    <div class="complaint_background">
+      <p style="word-wrap: break-word">{{ complaint.descrip }}</p>
+    </div>
+
+</td>
+</tr>
+    <div data-role="popup" id="myPopup" class="ui-content" style="min-width:600px;z-index: 1000;min-height: 300px;">
+      <form method="post" action="/rango/login/">
+          {% csrf_token %}
+        <div>
+          <h3>Edit the form</h3>
+          <label for="usrnm" class="ui-hidden-accessible">Complainant name:</label>
+          <input type="text" name="user" id="usrnm" placeholder="" value="{{ complaint.fname }}">
+          <label for="pswd" class="ui-hidden-accessible">Mobile number</label>
+          <input type="text" name="passw" id="pswd" value="{{ complaint.mob }}">
+            <label for="pswd" class="ui-hidden-accessible">Address</label>
+          <input type="text" name="passw" id="pswd" value="{{ complaint.address }}">
+          <input type="submit" data-inline="true" value="Log in">
+        </div>
+      </form>
+    </div>
+{% endfor %}
+</tbody>
+</table>
+
+
+
+    <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left">Show Popup Form</a>
+
+
+
+
+
+</div>
+
+</body>
+</html>
